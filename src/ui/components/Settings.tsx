@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { exportText, importText, resetGame } from '../store';
 import { storageIsPersistent } from '../storage';
+import { muted, toggleMute } from '../sound';
 
 /** A bottom sheet for saves: export, import, reset. Doubles as a test tool on iPhone. */
 export function Settings({ onClose }: { onClose: () => void }) {
@@ -36,7 +37,7 @@ export function Settings({ onClose }: { onClose: () => void }) {
     <div class="sheet-backdrop" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="settings-title">
         <div class="sheet__head">
-          <h2 id="settings-title">Saves</h2>
+          <h2 id="settings-title">Settings</h2>
           <button type="button" class="btn btn--ghost sheet__close" ref={closeRef} onClick={onClose}>
             Close
           </button>
@@ -47,6 +48,13 @@ export function Settings({ onClose }: { onClose: () => void }) {
             This browser is not keeping saves. Export your save before closing the page.
           </p>
         )}
+
+        <section class="sheet__section">
+          <h3>Sound</h3>
+          <button type="button" class="btn" aria-pressed={!muted.value} onClick={toggleMute}>
+            {muted.value ? 'Sound is off. Turn on' : 'Sound is on. Turn off'}
+          </button>
+        </section>
 
         <section class="sheet__section">
           <h3>Export</h3>
@@ -104,7 +112,7 @@ export function Settings({ onClose }: { onClose: () => void }) {
           )}
         </section>
 
-        <p class="sheet__meta">Office of Permits · build M0</p>
+        <p class="sheet__meta">Office of Permits · build M1 · keys: S stamp, A approve, D deny, 1-4 check, Space letter, M mute</p>
       </div>
     </div>
   );

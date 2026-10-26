@@ -26,6 +26,45 @@ export function rngPick<T>(state: RngState, items: readonly T[]): { value: T; st
   return { value: items[r.value] as T, state: r.state };
 }
 
+/**
+ * A convenience wrapper for code that draws many numbers in a row. It starts from a state,
+ * and `.state` gives the state to store back. Callers stay pure from the outside.
+ */
+export function roller(start: RngState) {
+  let s = start;
+  const next = () => {
+    const r = rngNext(s);
+    s = r.state;
+    return r.value;
+  };
+  const int = (min: number, max: number) => min + Math.floor(next() * (max - min + 1));
+  return {
+    next,
+    int,
+    chance: (p: number) => next() < p,
+    pick: <T>(items: readonly T[]): T => {
+      if (items.length === 0) throw new Error('pick: empty list');
+      return items[int(0, items.length - 1)] as T;
+    },
+    /** Picks a key with probability proportional to its weight. */
+    weighted: <K extends string>(weights: Readonly<Record<K, number>>): K => {
+      const entries = Object.entries(weights) as [K, number][];
+      const total = entries.reduce((sum, [, w]) => sum + w, 0);
+      let r = next() * total;
+      for (const [k, w] of entries) {
+        r -= w;
+        if (r < 0) return k;
+      }
+      return entries[entries.length - 1]![0];
+    },
+    get state() {
+      return s;
+    },
+  };
+}
+
+export type Roller = ReturnType<typeof roller>;
+
 /** Turns any integer seed into a well-mixed starting state. */
 export function seedRng(seed: number): RngState {
   let h = (seed ^ 0x9e3779b9) >>> 0;

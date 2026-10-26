@@ -1,0 +1,61 @@
+# End-of-shift report lines. Slots: {case} {name} {district} {victim}.
+# passed_invalid: a bad case you stamped or approved came back. Matched by the rule it broke.
+# denied_valid: you turned away an honest applicant. denied_invalid: you caught one.
+consequences:
+  - id: tower_collapse
+    when: { kind: passed_invalid, rule: tower_guild_seal }
+    lines:
+      - "The tower you approved for {name} (#{case}) has settled onto {victim}."
+      - "{name}'s extra floors (#{case}) have been reclassified as debris."
+      - "The top of {name}'s tower (#{case}) is now in {district}. The rest is not."
+
+  - id: bakery_sign
+    when: { kind: passed_invalid, rule: bakery_guild_seal }
+    lines:
+      - "{name}'s sign (#{case}) fell on a passing alderman. He is mostly fine."
+      - "The sign for {name} (#{case}) now blocks the sun over {district}."
+      - "{name}'s sign (#{case}) was struck by lightning twice. It is very proud."
+
+  - id: dragon_ash
+    when: { kind: passed_invalid, rule: dragon_thatch }
+    lines:
+      - "{name}'s thatched home (#{case}) is now a charming pile of ash."
+      - "The thatch you approved for {name} (#{case}) lasted until breakfast."
+      - "{name} (#{case}) sneezed. The cottage did not survive. Neither did {victim}."
+
+  - id: dragon_wyvern
+    when: { kind: passed_invalid, rule: dragon_species }
+    lines:
+      - "The 'dragon' you housed for {name} (#{case}) was a wyvern. It ate the mailbox."
+      - "{name} (#{case}) is a wyvern. The neighbours can tell. So can {victim}."
+
+  - id: forged_seal_passed
+    when: { kind: passed_invalid, rule: forged_seal }
+    lines:
+      - "The Guild seal on #{case} was drawn in jam. The Guild has noticed."
+      - "The seal {name} used (#{case}) was a pastry stamp. The Guild is not amused."
+      - "A forged seal on #{case} ({name}) has been framed in the Guild Hall as a warning."
+
+  - id: denied_honest
+    when: { kind: denied_valid }
+    lines:
+      - "{name} (#{case}) has filed a complaint about you, in triplicate."
+      - "{name} (#{case}) was entirely above board. They have told everyone."
+      - "Your denial of {name} (#{case}) was overturned on appeal. They brought cake."
+
+  - id: caught
+    when: { kind: denied_invalid }
+    lines:
+      - "{name} (#{case}) is sulking at ground level. {victim} remains standing."
+      - "{name} (#{case}) has gone to try the Office in the next city."
+      - "The Guild thanks you for catching #{case}. It does not say so warmly."
+
+  - id: ember_stamped
+    when: { kind: story, story: ember_thatch_case }
+    lines:
+      - "Ember's cottage (#{case}) is now a charming pile of ash. She has reapplied."
+
+  - id: grell_approved
+    when: { kind: story, story: grell_basement_case }
+    lines:
+      - "Workmen report a tidy hole beneath Sallow Lane (#{case}). It was already there."

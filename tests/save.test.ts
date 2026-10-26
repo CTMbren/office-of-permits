@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { newGame } from '../src/core/state';
-import { reduce } from '../src/core/reduce';
+import { replay } from '../src/core/reduce';
 import { decodeSave, encodeSave, exportSave, importSave } from '../src/core/save/codec';
 import { BACKUP_KEY, readSave, SAVE_KEY, writeSave, type KeyValueStore } from '../src/core/save/store';
 
@@ -10,7 +10,11 @@ function memoryStore(): KeyValueStore & { data: Map<string, string> } {
   return { data, getItem: (k) => data.get(k) ?? null, setItem: (k, v) => void data.set(k, v) };
 }
 
-const midShift = reduce(reduce(newGame(1337), { t: 'startShift' }), { t: 'spendMinutes', minutes: 30 });
+const midShift = replay(newGame(1337), [
+  { t: 'startShift' },
+  { t: 'decide', verdict: 'stamp' },
+  { t: 'check', field: 'seal' },
+]);
 
 describe('save codec', () => {
   it('round-trips a mid-shift state', () => {
@@ -29,10 +33,17 @@ describe('save codec', () => {
     expect(result.ok).toBe(false);
   });
 
-  it('loads every fixture save', () => {
-    const fixture = readFileSync('tests/fixtures/saves/save_v1.json', 'utf8');
+  it.each(['save_v1.json', 'save_v2.json'])('loads fixture %s', (name) => {
+    const fixture = readFileSync(`tests/fixtures/saves/${name}`, 'utf8');
     const result = decodeSave(fixture);
     expect(result.ok).toBe(true);
+  });
+
+  it('migrates a v1 save by dropping its old-style shift', () => {
+    const result = decodeSave(readFileSync('tests/fixtures/saves/save_v1.json', 'utf8'));
+    expect(result.ok && result.state.v).toBe(2);
+    expect(result.ok && result.state.shift).toBeNull();
+    expect(result.ok && result.state.ledger).toEqual({});
   });
 });
 

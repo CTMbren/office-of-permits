@@ -8,7 +8,8 @@ type Migration = (state: Record<string, unknown>) => Record<string, unknown>;
 
 /** migrations[n] upgrades a version-n state to version n+1. */
 export const migrations: Record<number, Migration> = {
-  // 1: (s) => ({ ...s, v: 2, newField: defaultValue }),
+  // v1 (M0) had no cases. Its shift shape cannot continue, so an in-progress shift is dropped.
+  1: (s) => ({ ...s, v: 2, caseNo: 0, shift: null, lastReport: null, ledger: {} }),
 };
 
 export type LoadResult = { ok: true; state: GameState } | { ok: false; error: string };

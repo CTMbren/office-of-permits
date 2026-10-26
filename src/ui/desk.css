@@ -11,10 +11,14 @@
 /* ---- Top bar ---- */
 .topbar {
   display: flex;
+  flex-wrap: wrap; /* on narrow phones the stats drop to their own row */
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 2px 10px;
   padding-bottom: 10px;
+}
+.topbar__name {
+  white-space: nowrap;
 }
 .topbar__title {
   font-size: 22px;
@@ -26,8 +30,10 @@
   color: var(--on-desk-soft);
 }
 .topbar__stats {
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 12px;
   font-family: var(--font-field);
   font-size: 14px;
@@ -240,6 +246,9 @@
   .panels {
     flex: 1 1 240px;
     max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
   }
   .panels__tabs {
     display: none;

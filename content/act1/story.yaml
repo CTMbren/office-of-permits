@@ -1,0 +1,45 @@
+# Hand-written cases at fixed positions. `position` counts cases within the shift (1 = first).
+# A field given as one value means claim and truth agree; {claim, truth} means the applicant lied.
+story:
+  - id: ember_thatch_case
+    shift: 1
+    position: 1
+    permit: dragon
+    applicant: Embrastyx (Ember)
+    species: dragon
+    cast: ember
+    fee: 20
+    letter: ember_thatch
+    fields:
+      species: dragon
+      dwelling: thatched cottage (charming)
+      district: Lower Thimble
+      seal: none
+
+  - id: vane_tower_case
+    shift: 1
+    position: 6
+    permit: tower
+    applicant: Archmage Pellucida Vane
+    species: wizard
+    cast: vane
+    fee: 12
+    letter: vane_tower
+    fields:
+      district: Lower Thimble
+      floors: { claim: 5, truth: 8 }
+      seal: none
+
+  - id: grell_basement_case
+    shift: 1
+    position: 11
+    permit: basement
+    applicant: Mr. A. Grell
+    species: unclear
+    cast: grell
+    fee: 12
+    letter: grell_basement
+    fields:
+      address: Beneath 9 Sallow Lane
+      depth: 1
+      use: storage

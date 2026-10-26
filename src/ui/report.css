@@ -1,0 +1,86 @@
+/* End-of-shift report and side-panel details (tray, Ledger). */
+
+/* ---- Report ---- */
+.report__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 20px;
+  margin: 0 0 18px;
+}
+.report__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px dotted var(--paper-edge);
+  padding: 4px 0;
+  font-family: var(--font-field);
+  font-size: 14px;
+}
+.report__row dt {
+  color: var(--ink-soft);
+}
+.report__row dd {
+  margin: 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.report__heading {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.report__lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.report__lines li {
+  font-family: var(--font-field);
+  font-size: 15px;
+  line-height: 1.45;
+  padding-left: 14px;
+  border-left: 2px solid var(--ink-red);
+  animation: line-in 240ms ease-out both;
+}
+@keyframes line-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+}
+
+/* ---- Panels ---- */
+.panel__note {
+  margin: 0;
+  font-style: italic;
+  color: var(--on-desk-soft);
+}
+.panel__streak {
+  margin-top: 8px;
+  color: var(--gold);
+}
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.ledger th,
+.ledger td {
+  text-align: left;
+  padding: 3px 4px;
+  border-bottom: 1px solid rgba(243, 234, 211, 0.15);
+}
+.ledger th {
+  font-weight: 400;
+  color: var(--on-desk-soft);
+}
+.ledger td + td,
+.ledger th + th {
+  text-align: right;
+}
+.stat__label {
+  font-size: 12px;
+  color: var(--on-desk-soft);
+}

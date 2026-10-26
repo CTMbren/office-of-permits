@@ -7,8 +7,12 @@ Project plan: https://claude.ai/artifact/9QHhXdEZTx5T3BMoAWbTox
 
 ## Current milestone
 
-**M0 Skeleton: done.** Next: **M1 Desk slice** (case model + generator, `run()` evaluator,
-shift reducer with Stamp/Check/Approve/Deny, desk UI, juice, end-of-shift report).
+**M1 Desk slice: done, awaiting Brendan's playtest.** One 120 desk-minute shift with Bakery,
+Tower and Dragon cases (claims vs truth), Ember/Vane/Grell story cases, Stamp/Check/Approve/Deny,
+named end-of-shift report, Ledger, sound and card animation.
+Next: **M2 Act 1 loop** (ranks + upgrade shop, bribes + Suspicion + audit, Request Documents +
+named Favours, multi-shift surfacing, Gazette decrees, `balance.yaml`, simulator CI assertions).
+Tune M1 from the playtest first if needed (order: invalid-rate gap, defect concentration, dragon fine).
 Update this section at the end of every session, and add an entry to `docs/log.md`.
 
 ## Platform
@@ -36,6 +40,10 @@ Desktop gets the three-column Parchment Desk from 900px wide.
 | `src/core/actions.ts`, `reduce.ts` | Action union; the pure reducer, the only place state changes |
 | `src/core/rng.ts` | Seeded RNG (mulberry32); its state lives in `GameState.rng` |
 | `src/core/balance.ts` | All tunable numbers (moves to `content/balance.yaml` in M2) |
+| `src/core/cases/` | Case model (claim/truth fields, `PERMIT_INFO`) and the generator |
+| `src/core/rules/run.ts` | The single evaluator: `run()`, `test()`, `correctVerdict()` |
+| `src/core/shift/` | Shift loop (`shift.ts`: arrivals, check, decide) and `report.ts` (end of shift) |
+| `src/core/content/index.ts` | Validated content (`CONTENT`, `RULEBOOK`) |
 | `src/core/format.ts` | Number formatter |
 | `src/core/save/` | Save schema (Zod), codec + migrations + export/import, slot store with backup |
 | `src/core/content/schema.ts` | Zod schemas for authored content |

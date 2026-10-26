@@ -42,10 +42,11 @@ describe('rng', () => {
 });
 
 describe('reduce', () => {
-  it('starts a shift with the slice budget', () => {
+  it('starts a shift with the slice budget and a case on the desk', () => {
     const s = reduce(newGame(1), { t: 'startShift' });
     expect(s.shiftNo).toBe(1);
     expect(s.shift?.deskMinutesLeft).toBe(BALANCE.shift.deskMinutesSlice);
+    expect(s.shift?.current).not.toBeNull();
   });
 
   it('ignores startShift while already on shift', () => {
@@ -53,18 +54,10 @@ describe('reduce', () => {
     expect(reduce(s, { t: 'startShift' })).toBe(s);
   });
 
-  it('ends the shift when the candle burns out', () => {
-    let s = reduce(newGame(1), { t: 'startShift' });
-    s = reduce(s, { t: 'spendMinutes', minutes: 119 });
-    expect(s.shift?.deskMinutesLeft).toBe(1);
-    s = reduce(s, { t: 'spendMinutes', minutes: 5 });
-    expect(s.shift).toBeNull();
-  });
-
   it('does not mutate the input state', () => {
-    const s0 = newGame(1);
+    const s0 = reduce(newGame(1), { t: 'startShift' });
     const frozen = JSON.stringify(s0);
-    replay(s0, [{ t: 'startShift' }, { t: 'spendMinutes', minutes: 10 }, { t: 'endShift' }]);
+    replay(s0, [{ t: 'decide', verdict: 'stamp' }, { t: 'decide', verdict: 'approve' }, { t: 'endShift' }]);
     expect(JSON.stringify(s0)).toBe(frozen);
   });
 

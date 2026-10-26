@@ -31,8 +31,8 @@ export function dispatch(action: Action): void {
   const next = reduce(game.value, action);
   if (next === game.value) return;
   game.value = next;
-  // Shift boundaries are natural save points.
-  if (action.t === 'startShift' || action.t === 'endShift' || next.shift === null) save();
+  // Saves are a few KB; saving after every action means a reload resumes the same case.
+  save();
 }
 
 export function save(): void {

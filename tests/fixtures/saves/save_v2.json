@@ -1,0 +1,147 @@
+{
+  "v": 2,
+  "savedAt": 1793000000000,
+  "state": {
+    "v": 2,
+    "seed": 2026,
+    "rng": 171156670,
+    "act": 1,
+    "shiftNo": 1,
+    "caseNo": 4,
+    "cur": {
+      "coin": 29,
+      "standing": 2,
+      "favours": 0,
+      "suspicion": 0
+    },
+    "shift": {
+      "no": 1,
+      "deskMinutes": 120,
+      "deskMinutesLeft": 115,
+      "elapsed": 5,
+      "nextArrivalAt": 6,
+      "spawned": 4,
+      "current": {
+        "no": 3,
+        "permit": "tower",
+        "fee": 12,
+        "applicant": {
+          "name": "Wizard Morbus Pike",
+          "species": "wizard"
+        },
+        "fields": {
+          "district": {
+            "claim": "Lower Thimble",
+            "truth": "Lower Thimble"
+          },
+          "floors": {
+            "claim": 3,
+            "truth": 9
+          },
+          "seal": {
+            "claim": "none",
+            "truth": "none"
+          }
+        }
+      },
+      "checked": [],
+      "tray": [
+        {
+          "no": 4,
+          "permit": "bakery",
+          "fee": 6,
+          "applicant": {
+            "name": "Bastian Crust",
+            "species": "human"
+          },
+          "fields": {
+            "shop": {
+              "claim": "Leaven's Loaves",
+              "truth": "Leaven's Loaves"
+            },
+            "district": {
+              "claim": "Lower Thimble",
+              "truth": "Lower Thimble"
+            },
+            "sign_m": {
+              "claim": 1,
+              "truth": 1
+            },
+            "seal": {
+              "claim": "guild",
+              "truth": "guild"
+            }
+          },
+          "letterId": "bakery_brief"
+        }
+      ],
+      "streak": 2,
+      "streakPeak": 2,
+      "coinEarned": 29,
+      "standingEarned": 2,
+      "decisions": [
+        {
+          "no": 1,
+          "name": "Embrastyx (Ember)",
+          "permit": "dragon",
+          "verdict": "deny",
+          "correct": true,
+          "district": "Lower Thimble",
+          "rule": "dragon_thatch",
+          "storyId": "ember_thatch_case"
+        },
+        {
+          "no": 2,
+          "name": "Pyrella",
+          "permit": "dragon",
+          "verdict": "approve",
+          "correct": true,
+          "district": "Upper Thimble"
+        }
+      ]
+    },
+    "lastReport": null,
+    "ledger": {
+      "dragon": {
+        "processed": 2,
+        "bad": 1
+      }
+    },
+    "cast": {
+      "grell": {
+        "stance": "neglected",
+        "rel": 0
+      },
+      "vane": {
+        "stance": "neglected",
+        "rel": 0
+      },
+      "thrumm": {
+        "stance": "neglected",
+        "rel": 0
+      },
+      "hask": {
+        "stance": "neglected",
+        "rel": 0
+      },
+      "ember": {
+        "stance": "neglected",
+        "rel": 0
+      },
+      "nibb": {
+        "stance": "neglected",
+        "rel": 0
+      },
+      "quill": {
+        "stance": "neglected",
+        "rel": 0
+      }
+    },
+    "flags": {
+      "story.ember_thatch_case": 0
+    },
+    "meta": {
+      "transfers": 0
+    }
+  }
+}

@@ -1,0 +1,134 @@
+# Optional letters attached to cases. Never needed to decide a case correctly.
+# Slots: {name}. Story letters (story: true) are hand-written and may name the mystery.
+letters:
+  # ---- Bakery Signage ----
+  - id: bakery_proud
+    permit: bakery
+    text: |
+      To the Office,
+      Our new sign is tasteful, legible and only slightly on fire at dusk, which is the lamps.
+      Customers have described it as "visible from the river." We take this as praise.
+      Warmly, and with a complimentary bun,
+      {name}
+
+  - id: bakery_rival
+    permit: bakery
+    text: |
+      Dear Clerk,
+      The bakery across the road has a sign shaped like a croissant.
+      Ours is shaped like a larger croissant. I trust this is in order.
+      {name}
+
+  - id: bakery_brief
+    permit: bakery
+    text: |
+      Sign. Bread. Thank you.
+      {name}
+
+  - id: bakery_worried
+    permit: bakery
+    text: |
+      Dear Office,
+      My late husband always said a bakery is only as good as its sign. He was a sign-painter, so he would.
+      Please approve it. The bread is quite good too.
+      Respectfully, {name}
+
+  # ---- Tower Expansion ----
+  - id: tower_grand
+    permit: tower
+    text: |
+      Clerk,
+      A wizard's tower is a statement. Mine currently states "adequate."
+      I wish it to state "considerable." The floors are modest. The view will not be.
+      {name}
+
+  - id: tower_neighbours
+    permit: tower
+    text: |
+      To whom it may concern,
+      My neighbours have been consulted and have raised no objections, chiefly because they are now newts.
+      This is unrelated and temporary.
+      {name}
+
+  - id: tower_research
+    permit: tower
+    text: |
+      Dear Office,
+      The additional floors are for research. The research is into whether I need additional floors.
+      Early results are promising.
+      {name}
+
+  - id: tower_pigeons
+    permit: tower
+    text: |
+      Clerk,
+      The pigeons have begun to get ideas at my current height. I must go higher.
+      You will understand if you have ever met a pigeon with ideas.
+      {name}
+
+  # ---- Dragon Residency ----
+  - id: dragon_polite
+    permit: dragon
+    text: |
+      Esteemed Office,
+      I have read your guidance on residential fire safety twice, once by accident.
+      I am a careful and quiet neighbour. I eat only what I am invited to eat.
+      Respectfully, {name}
+
+  - id: dragon_hoard
+    permit: dragon
+    text: |
+      Dear Clerk,
+      My hoard is small and mostly receipts. I do not anticipate disturbances.
+      I am told the local knights have retired. I wish them well, from a distance.
+      {name}
+
+  - id: dragon_nervous
+    permit: dragon
+    text: |
+      To the Office,
+      I promise I am exactly as large as it says on the form. Possibly smaller. I have been dieting.
+      {name}
+
+  - id: dragon_formal
+    permit: dragon
+    text: |
+      Sir or Madam,
+      I enclose the fee, two references, and a statement from a knight confirming I did not eat him.
+      He was very grateful and asked that I mention it.
+      {name}
+
+  # ---- Story ----
+  - id: ember_thatch
+    permit: dragon
+    story: true
+    text: |
+      Dear Office,
+      I have chosen a thatched cottage because it is charming.
+      I am told thatch is "a concern." I am very careful.
+      I have only been on fire twice this year, both times on purpose.
+      With great respect and low temperatures,
+      Embrastyx (Ember), Applicant, 9th Attempt
+
+  - id: vane_tower
+    permit: tower
+    story: true
+    text: |
+      Clerk! Floors! Hardly any of them!
+      The warder is simply on a spiritual retreat, and the seal will follow!
+      My current tower is merely adequate for thinking!
+      Approve this and I shall name a minor comet after your department!
+      P. Vane, Archmage (Ret'd, Unret'd)
+
+  - id: grell_basement
+    permit: basement
+    story: true
+    acrostic: ASKIT
+    text: |
+      A small cellar, as before. Very small. Practically a cupboard.
+      Stone from the usual quarry; my employer is particular.
+      Kindly disregard the humming. It is the pipes.
+      I enclose the fee in full and a pressed fern for your desk.
+      Trusting all is in order,
+      A. Grell, on behalf of the Freehold
+      Typed: O.V.

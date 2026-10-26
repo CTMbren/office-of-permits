@@ -1,0 +1,80 @@
+# Name and value pools the case generator draws from.
+pools:
+  bakers:
+    - Hobb Crumley
+    - Widow Farthing
+    - Jory Leaven
+    - Old Mags Treacle
+    - Pim Sourwell
+    - Dora Kneadwell
+    - Bastian Crust
+    - Effie Muffet
+    - Tolly Brioche
+    - Grandmother Yeast
+    - Alder Proofe
+    - Nettie Scone
+
+  bakeries:
+    - The Rising Sun
+    - Crumb & Daughter
+    - Leaven's Loaves
+    - The Gilded Bun
+    - Sweet Thimble
+    - The Proving Room
+    - Daily Bread (Est. Tuesday)
+    - The Honest Crust
+    - Knead to Know
+    - The Second Breakfast
+
+  wizards:
+    - Magister Oswin Dusk
+    - Hedda the Grey-ish
+    - Conjurer Bartlemy Fogg
+    - Thaumaturge Ilse Wren
+    - Wizard Morbus Pike
+    - Sorceress Lettice Quorn
+    - Adept Fennick Lowe
+    - The Brothers Umbral
+    - Enchanter Tibbs
+    - Seer Marjory Hale
+    - Hierophant Dennet Moss
+
+  dragons:
+    - Scorchmaw
+    - Velthrax the Mild
+    - Ashwhisper
+    - Grumblecinder
+    - Tindra
+    - Old Smoulder
+    - Pyrella
+    - Kindlebeard
+    - Emberly Vex
+    - Cinderhollow
+
+  districts:
+    - Lower Thimble
+    - Upper Thimble
+    - Elm Ward
+    - Sallow Lane
+    - Cartographers' Lane
+    - the Drowned Quarter
+    - Bellwether Row
+    - Gardens Green
+
+  # Dragon dwellings that are NOT thatched. The generator adds thatched ones itself.
+  dwellings:
+    - slate cottage
+    - stone tower
+    - cave (renovated)
+    - brick townhouse
+    - disused bell tower
+    - granite bungalow
+    - quarry (decorated)
+
+  victims:
+    - Thrumm's Cheese
+    - the Guild Hall
+    - a pigeon sanctuary
+    - the Elm Ward bandstand
+    - a parked hay cart
+    - the Office's own bike rack
