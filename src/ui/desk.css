@@ -1,0 +1,259 @@
+/* Layout. Mobile first: one column with a thumb-reach action bar at the bottom.
+   From 900px wide it becomes the three-column Parchment Desk (rules | card | tray). */
+
+.app {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--safe-top) + 10px) calc(var(--safe-right) + 14px) 0 calc(var(--safe-left) + 14px);
+}
+
+/* ---- Top bar ---- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+.topbar__title {
+  font-size: 22px;
+  line-height: 1.1;
+}
+.topbar__sub {
+  font-family: var(--font-field);
+  font-size: 13px;
+  color: var(--on-desk-soft);
+}
+.topbar__stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-field);
+  font-size: 14px;
+}
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.icon-button {
+  min-width: var(--tap);
+  min-height: var(--tap);
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--on-desk);
+}
+
+/* ---- Main area ---- */
+.desk {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: calc(var(--tap) + 32px + var(--safe-bottom));
+}
+.desk__center {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---- Paper ---- */
+.card {
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.45), transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(120, 85, 40, 0.12), transparent 55%);
+  color: var(--ink);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-card);
+  transform: rotate(-0.4deg);
+  border-radius: var(--radius);
+}
+.card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+.card__title {
+  font-size: 24px;
+}
+.card__no {
+  font-family: var(--font-field);
+  font-size: 14px;
+}
+.card p {
+  margin: 0 0 10px;
+}
+.card__sign {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.slip {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 12px 14px;
+  box-shadow: var(--shadow-slip);
+  font-family: var(--font-field);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.slip:nth-child(odd) {
+  transform: rotate(-0.8deg);
+}
+.slip:nth-child(even) {
+  transform: rotate(0.6deg);
+}
+.slip__no {
+  font-weight: 700;
+  color: var(--ink-red);
+}
+
+/* ---- Side panels: tabs on phones, columns on wide screens ---- */
+.panels__tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.tab {
+  flex: 1;
+  min-height: 44px;
+  background: transparent;
+  border: 1px solid rgba(243, 234, 211, 0.35);
+  font-family: var(--font-field);
+  font-size: 14px;
+  color: var(--on-desk);
+}
+.tab[aria-selected='true'] {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.panel__title {
+  font-size: 20px;
+  color: var(--on-desk);
+}
+.panel__box {
+  background: rgba(243, 234, 211, 0.08);
+  border: 1px solid rgba(243, 234, 211, 0.3);
+  padding: 14px;
+  font-family: var(--font-field);
+  font-size: 14px;
+  color: var(--on-desk-soft);
+}
+
+/* ---- Action bar: fixed to the bottom on phones, inline on wide screens ---- */
+.actions {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 8px;
+  padding: 12px calc(var(--safe-right) + 14px) calc(var(--safe-bottom) + 12px)
+    calc(var(--safe-left) + 14px);
+  background: linear-gradient(to top, var(--desk) 70%, rgba(46, 35, 28, 0));
+}
+.btn {
+  flex: 1;
+  min-height: var(--tap);
+  padding: 0 14px;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-field);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  border-radius: var(--radius);
+}
+.btn--approve {
+  background: var(--ink-blue);
+  border-color: var(--ink-blue);
+  color: #fff;
+}
+.btn--deny {
+  background: var(--ink-red);
+  border-color: var(--ink-red);
+  color: #fff;
+}
+.btn--ghost {
+  background: transparent;
+  border: 2px dashed var(--on-desk-soft);
+  color: var(--on-desk);
+}
+.btn__key {
+  font-weight: 400;
+  margin-left: 6px;
+  opacity: 0.75;
+}
+.btn:active:not(:disabled) {
+  transform: translateY(1px) scale(0.98);
+}
+
+@media (min-width: 900px) {
+  .app {
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 24px;
+  }
+  .topbar__title {
+    font-size: 30px;
+  }
+  .topbar__stats {
+    font-size: 16px;
+    gap: 20px;
+  }
+  .desk {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 28px;
+    padding-bottom: 32px;
+  }
+  .desk__center {
+    flex: 2 1 520px;
+    max-width: 620px;
+    order: 2;
+  }
+  .panels--left {
+    order: 1;
+  }
+  .panels--right {
+    order: 3;
+  }
+  .panels {
+    flex: 1 1 240px;
+    max-width: 280px;
+  }
+  .panels__tabs {
+    display: none;
+  }
+  .card {
+    padding: 28px 32px;
+  }
+  .actions {
+    position: static;
+    background: none;
+    padding: 0;
+    justify-content: center;
+  }
+  .btn {
+    flex: 0 1 auto;
+  }
+}

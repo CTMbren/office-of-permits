@@ -1,0 +1,25 @@
+# Case templates. M0 ships one sample so the pipeline is exercised end to end;
+# the full M1 set (Bakery, Tower, Dragon) arrives with content batch C1.
+templates:
+  - id: dragon_residency
+    permit: Dragon Residency
+    species: dragon
+    acts: [1, 2]
+    weight: 3
+    tags: [creature, fire]
+    fields:
+      dwelling: [slate cottage, stone tower, thatched cottage, cave (renovated)]
+      district: [Lower Thimble, Elm Ward, Sallow Lane]
+      fee: [16, 24]
+    truths: { legit: 0.55, forged: 0.35, smuggler: 0.10 }
+    letters: [ember_thatch]
+
+letters:
+  - id: ember_thatch
+    text: |
+      Dear Office,
+      I have chosen a thatched cottage because it is charming.
+      I am told thatch is "a concern." I am very careful.
+      I have only been on fire twice this year, both times on purpose.
+      With great respect and low temperatures,
+      Embrastyx (Ember), Applicant, 9th Attempt

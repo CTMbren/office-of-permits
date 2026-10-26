@@ -1,0 +1,35 @@
+# The M1 rulebook. Each rule is a chip: the first rule whose conditions match decides the verdict.
+# Conditions read the TRUE value of a field when scoring the player.
+rules:
+  - id: tower_guild_seal
+    glyph: "🗼 > 5 floors ⇒ needs Guild seal"
+    text: Towers over 5 floors need a Guild seal.
+    if:
+      - { field: permit, op: eq, value: tower }
+      - { field: floors, op: gt, value: 5 }
+      - { field: seal, op: neq, value: guild }
+    then: deny
+
+  - id: bakery_guild_seal
+    glyph: "🥖 sign > 3 m ⇒ needs Guild seal"
+    text: Bakery signs over 3 metres need a Guild seal.
+    if:
+      - { field: permit, op: eq, value: bakery }
+      - { field: sign_m, op: gt, value: 3 }
+      - { field: seal, op: neq, value: guild }
+    then: deny
+
+  - id: dragon_thatch
+    glyph: "🐉 + thatch ⇒ DENY"
+    text: Dragons may not live in thatched housing.
+    if:
+      - { field: permit, op: eq, value: dragon }
+      - { field: dwelling, op: eq, value: thatched }
+    then: deny
+
+  - id: forged_seal
+    glyph: "Forged seal ⇒ DENY"
+    text: Forged seals are always denied.
+    if:
+      - { field: seal, op: eq, value: forged }
+    then: deny

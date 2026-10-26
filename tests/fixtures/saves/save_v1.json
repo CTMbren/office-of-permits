@@ -1,0 +1,57 @@
+{
+  "v": 1,
+  "savedAt": 1793000000000,
+  "state": {
+    "v": 1,
+    "seed": 1337,
+    "rng": 3322469804,
+    "act": 1,
+    "shiftNo": 1,
+    "cur": {
+      "coin": 0,
+      "standing": 0,
+      "favours": 0,
+      "suspicion": 0
+    },
+    "shift": {
+      "no": 1,
+      "deskMinutes": 120,
+      "deskMinutesLeft": 90,
+      "processed": 0
+    },
+    "cast": {
+      "grell": {
+        "stance": "neglected",
+        "rel": 0
+      },
+      "vane": {
+        "stance": "neglected",
+        "rel": 0
+      },
+      "thrumm": {
+        "stance": "neglected",
+        "rel": 0
+      },
+      "hask": {
+        "stance": "neglected",
+        "rel": 0
+      },
+      "ember": {
+        "stance": "neglected",
+        "rel": 0
+      },
+      "nibb": {
+        "stance": "neglected",
+        "rel": 0
+      },
+      "quill": {
+        "stance": "neglected",
+        "rel": 0
+      }
+    },
+    "flags": {},
+    "meta": {
+      "transfers": 0
+    }
+  }
+}
